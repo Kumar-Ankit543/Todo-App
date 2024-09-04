@@ -4,38 +4,17 @@ import { CreateTodo } from "../components/CreateTodo";
 import { Todos } from "../components/Todos";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
 
-  const task = [
-    {
-      title: "Goto gym",
-      description: "goto gym",
-      completed: false,
-    },
-    {
-      title: "Goto gym",
-      description: "goto gym",
-      completed: false,
-    },
-    {
-      title: "Goto gym",
-      description: "goto gym",
-      completed: false,
-    },
-  ];
+  fetch("http://localhost:3000/todos").then(async function (res) {
+    const response = await res.json();
+    setTodos(response);
+  });
 
   return (
     <div>
       <CreateTodo></CreateTodo>
-      <Todos
-        todos={[
-          {
-            title: "Goto gym",
-            description: "goto gym",
-            completed: false,
-          },
-        ]}
-      ></Todos>
+      <Todos todos={todos}></Todos>
     </div>
   );
 }
