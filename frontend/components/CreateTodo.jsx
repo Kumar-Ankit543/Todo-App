@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./CreateTodo.module.css";
 
 export function CreateTodo() {
   const [title, setTitle] = useState("");
@@ -7,6 +8,7 @@ export function CreateTodo() {
   return (
     <div>
       <input
+        className={styles.input}
         type="text"
         placeholder="title"
         onChange={function (e) {
@@ -16,6 +18,7 @@ export function CreateTodo() {
       ></input>{" "}
       <br></br>
       <input
+        className={styles.input}
         type="text"
         placeholder="description"
         onChange={function (e) {
@@ -25,6 +28,7 @@ export function CreateTodo() {
       ></input>{" "}
       <br></br>
       <button
+        className={styles.button}
         onClick={() => {
           fetch("http://localhost:3000/todo", {
             method: "POST",

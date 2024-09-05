@@ -1,0 +1,81 @@
+/* Unique button style */
+.button {
+  background: linear-gradient(
+    145deg,
+    #6c63ff,
+    #4834d4
+  ); /* Gradient background */
+  color: white; /* White text */
+  padding: 12px 24px; /* Larger padding */
+  border: none; /* Remove default border */
+  border-radius: 30px; /* Highly rounded corners */
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2),
+    -4px -4px 12px rgba(255, 255, 255, 0.1); /* Neumorphic shadow */
+  font-size: 18px; /* Bigger font size */
+  letter-spacing: 1px; /* Add some letter spacing */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Hover effect */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.75s ease;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.button:hover {
+  transform: translateY(-2px); /* Slightly lift the button */
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.3),
+    -6px -6px 16px rgba(255, 255, 255, 0.15); /* Enhanced shadow on hover */
+}
+
+.button:active {
+  transform: translateY(1px); /* Slightly press the button */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2),
+    -2px -2px 8px rgba(255, 255, 255, 0.1); /* Reduced shadow when clicked */
+}
+
+/* Styling for the input field */
+.input[type="text"] {
+  width: 100%; /* Full width */
+  padding: 12px 20px; /* Padding for space inside the input */
+  margin: 10px 0; /* Margin for space around the input */
+  background: #f0f0f3; /* Light background for neumorphic effect */
+  border: none; /* No border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.15),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.7); /* Neumorphic inset shadow */
+  font-size: 16px; /* Font size */
+  color: #333; /* Text color */
+  outline: none; /* Remove the outline when clicked */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Focus effect */
+.input[type="text"]:focus {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.6),
+    0 0 5px rgba(108, 99, 255, 0.7); /* Glow effect when focused */
+  background: #e0e0e3; /* Slightly darker background when focused */
+}
+
+/* Placeholder styling */
+.input[type="text"]::placeholder {
+  color: #aaa; /* Lighter color for placeholder text */
+  font-style: italic; /* Italic placeholder text */
+}
