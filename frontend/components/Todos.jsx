@@ -9,7 +9,6 @@ export function Todos({ todos }) {
   return (
     <div>
       {todos.map(function (todo) {
-        console.log(todo);
         return (
           <div>
             <h1 className={styles.input}>{todo.title}</h1>

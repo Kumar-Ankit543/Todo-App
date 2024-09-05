@@ -41,7 +41,6 @@ export function CreateTodo() {
             },
           }).then(async function (res) {
             const response = await res.json();
-            console.log(response);
             alert("Todo created");
           });
         }}
